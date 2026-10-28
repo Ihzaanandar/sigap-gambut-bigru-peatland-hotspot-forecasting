@@ -139,24 +139,6 @@ sigap-gambut-bigru-peatland-hotspot-forecasting/
 
 ## 💾 Data Requirements
 
-The sample workbook does **not** replace the source data required for training. The notebook expects data in Google Drive under `MyDrive/gemastik`.
-
-**Primary daily cache** (the first one found is used; the notebook raises `FileNotFoundError` if neither exists):
-
-```text
-MyDrive/gemastik/data/model/training_simple_daily/cache/daily_dataset_simple.parquet
-MyDrive/gemastik/data/model/training_v3_daily/cache/daily_dataset_v3.parquet
-```
-
-**Supporting artifacts** (for provenance audits and historical maps):
-
-```text
-MyDrive/gemastik/data/model/final/train_dataset_oki_hotspot_next_day_2018_2025.csv
-MyDrive/gemastik/spatial/grid_oki_10km.geojson
-```
-
-The grid may alternatively be at `MyDrive/gemastik/scrapping data/spatial/grid_oki_10km.geojson`. Some audit, map, and reporting sections are unavailable if supporting files are missing.
-
 ### Model artifacts
 
 Final training saves to `MyDrive/gemastik/data/model/gru_gemastik_2026_full_recall_optimized/models/`:
