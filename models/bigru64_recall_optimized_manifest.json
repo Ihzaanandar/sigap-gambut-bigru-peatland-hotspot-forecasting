@@ -1,0 +1,59 @@
+{
+  "project": "SIGAP-GAMBUT GEMASTIK XIX 2026",
+  "target": "peat_hotspot_tomorrow",
+  "target_scope": "daily peat area status OKI H+1",
+  "features": [
+    "peat_temperature_mean_c_mean",
+    "peat_temperature_max_c_mean",
+    "peat_dewpoint_mean_c_mean",
+    "peat_relative_humidity_mean_pct_mean",
+    "peat_soil_water_layer1_mean_mean",
+    "peat_wind_speed_mean_ms_mean",
+    "peat_precipitation_sum_mm_mean",
+    "peat_vapor_pressure_deficit_kpa_mean",
+    "peat_soil_dryness_fraction_mean",
+    "peat_fire_weather_proxy_mean",
+    "peat_hotspot_today",
+    "peat_active_grid_count_today",
+    "peat_hotspot_count_nominal_high_sum",
+    "peat_hotspot_count_low_or_higher_sum",
+    "peat_frp_sum_mw_sum",
+    "peat_consecutive_dry_days_daily",
+    "days_since_peat_rain_5mm",
+    "days_since_peat_rain_10mm",
+    "days_since_peat_hotspot",
+    "peat_dry_area_equivalent_km2",
+    "peat_very_dry_area_km2"
+  ],
+  "n_numeric_features": 21,
+  "calendar_mask": "calendar_observed",
+  "n_input_channels": 22,
+  "config": {
+    "architecture": "bigru",
+    "gru_units": 64,
+    "dense_units": 16,
+    "dropout_rate": 0.2,
+    "learning_rate": 0.00075,
+    "weighting_mode": "class_year_balanced",
+    "loss": "binary_focal_crossentropy",
+    "focal_gamma": 4.0,
+    "window": 7,
+    "alarm_fraction": 0.295
+  },
+  "final_epochs": 10,
+  "final_seed": 42,
+  "final_threshold": 0.4704242944717407,
+  "score_type": "risk_score_not_calibrated_probability",
+  "development_years": "2018-2023",
+  "walk_forward_years": [
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "legacy_holdout_years": [
+    2024,
+    2025
+  ],
+  "legacy_holdout_used_for_new_selection": false
+}
